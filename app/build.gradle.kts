@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+import java.util.Properties
+
 android {
     namespace = "com.nicklam.hktaxinavi"
     compileSdk = 34
@@ -19,9 +21,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // 高德 API Key (從 local.properties 或 gradle.properties 讀取)
-        val localProps = java.util.Properties().apply {
-            val localFile = rootProject.file("local.properties")
-            if (localFile.exists()) load(localFile.inputStream())
+        val localProps = Properties()
+        val localFile = rootProject.file("local.properties")
+        if (localFile.exists()) {
+            localProps.load(localFile.inputStream())
         }
         val amapKey = localProps.getProperty("AMAP_API_KEY")
             ?: (project.findProperty("AMAP_API_KEY") as String?)
