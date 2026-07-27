@@ -1,6 +1,6 @@
 [versions]
-agp = "8.5.2"
-kotlin = "2.0.10"
+agp = "9.3.1"
+kotlin = "2.2.10"
 coreKtx = "1.13.1"
 lifecycleRuntimeKtx = "2.8.5"
 activityCompose = "1.9.2"
@@ -14,10 +14,8 @@ room = "2.6.1"
 datastore = "1.1.1"
 
 # Amap SDK versions
-amapNavi = "9.7.0"
-amapMap3d = "10.0.600"
-amapLocation = "6.4.7"
-amapSearch = "9.7.0"
+# 導航 SDK 已包含 3D 地圖 + 定位 + 搜索，不需分開引用
+amapNavi = "10.0.800_3dmap10.0.800"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,13 +45,11 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 
-# Amap SDK (高德地圖)
+# Amap SDK (高德地圖 — 導航 SDK 已包含地圖+定位+搜索)
 amap-navi = { group = "com.amap.api", name = "navi-3dmap", version.ref = "amapNavi" }
-amap-location = { group = "com.amap.api", name = "location", version.ref = "amapLocation" }
-amap-search = { group = "com.amap.api", name = "search", version.ref = "amapSearch" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version = "2.0.10-1.0.24" }
+ksp = { id = "com.google.devtools.ksp", version = "2.3.2" }
