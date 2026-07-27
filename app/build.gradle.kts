@@ -18,8 +18,14 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // 高德 API Key (從 gradle.properties 或環境變量注入)
-        val amapKey = project.findProperty("AMAP_API_KEY") as String? ?: "YOUR_AMAP_KEY_HERE"
+        // 高德 API Key (從 local.properties 或 gradle.properties 讀取)
+        val localProps = java.util.Properties().apply {
+            val localFile = rootProject.file("local.properties")
+            if (localFile.exists()) load(localFile.inputStream())
+        }
+        val amapKey = localProps.getProperty("AMAP_API_KEY")
+            ?: (project.findProperty("AMAP_API_KEY") as String?)
+            ?: "YOUR_AMAP_KEY_HERE"
         manifestPlaceholders["AMAP_API_KEY"] = amapKey
         buildConfigField("String", "AMAP_API_KEY", "\"$amapKey\"")
     }
