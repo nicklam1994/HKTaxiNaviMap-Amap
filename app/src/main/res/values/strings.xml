@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HK Taxi Navi</string>
+    <string name="app_description">香港的士司機專用導航 App - 基於高德地圖</string>
+
+    <!-- 導航 -->
+    <string name="start_navi">開始導航</string>
+    <string name="search_destination">搜尋目的地</string>
+    <string name="favorites">常用地點</string>
+
+    <!-- 隧道費 -->
+    <string name="toll_title">隧道費</string>
+    <string name="toll_total">累計隧道費</string>
+
+    <!-- 錯誤訊息 -->
+    <string name="error_no_route">無可用路線</string>
+    <string name="error_api_key">API Key 無效或配額不足</string>
+    <string name="error_network">網絡連接失敗</string>
+</resources>

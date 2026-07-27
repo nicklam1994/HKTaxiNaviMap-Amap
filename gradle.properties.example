@@ -1,0 +1,4 @@
+# 高德地圖 API Key
+# 在 https://console.amap.com/dev/key/app 申請
+# 注意: 此文件不應提交到 Git (.gitignore 已排除)
+AMAP_API_KEY=YOUR_AMAP_KEY_HERE

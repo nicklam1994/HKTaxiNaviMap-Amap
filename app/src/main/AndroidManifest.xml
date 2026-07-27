@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ============================================================
+         權限宣告
+         ============================================================ -->
+
+    <!-- 定位權限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 後台定位 (導航需持續定位) -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- 網絡 (API 調用 + 地圖加載) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 儲存 (離線地圖緩存) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- 手機狀態 (高德 SDK 需要) -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- ============================================================
+         高德 SDK Service
+         ============================================================ -->
+    <application
+        android:name=".HKTaxiNaviApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HKTaxiNaviMap"
+        android:usesCleartextTraffic="true">
+
+        <!-- 高德 API Key (由 gradle.properties 中的 AMAP_API_KEY 注入) -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${AMAP_API_KEY}" />
+
+        <!-- 高德定位 Service -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <!-- ============================================================
+             Activities
+             ============================================================ -->
+
+        <!-- 主頁 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/Theme.HKTaxiNaviMap">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 導航頁 -->
+        <activity
+            android:name=".NaviActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden|navigation"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.HKTaxiNaviMap.Navi"
+            android:keepScreenOn="true" />
+
+    </application>
+</manifest>

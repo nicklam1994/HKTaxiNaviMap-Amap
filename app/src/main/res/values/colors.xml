@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 香港的士主題色 -->
+    <color name="taxi_red">#CC0000</color>
+    <color name="taxi_green">#006633</color>
+    <color name="taxi_gold">#FFCC00</color>
+
+    <!-- Primary -->
+    <color name="primary">#006633</color>
+    <color name="primary_dark">#004D26</color>
+    <color name="accent">#FFCC00</color>
+
+    <!-- Background -->
+    <color name="background_dark">#1A1A2E</color>
+    <color name="surface_dark">#16213E</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="surface_light">#FFFFFF</color>
+
+    <!-- Navi -->
+    <color name="navi_panel_bg">#CC000000</color>
+    <color name="navi_text_primary">#FFFFFF</color>
+    <color name="navi_text_secondary">#B0B0B0</color>
+</resources>
